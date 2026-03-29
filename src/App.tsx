@@ -56,7 +56,10 @@ const Navbar = ({ activePage, setPage }: { activePage: Page, setPage: (p: Page) 
               About
             </button>
           </div>
-          <button className="bg-primary text-on-primary px-4 md:px-6 py-2.5 rounded-md font-label text-[10px] md:text-xs uppercase tracking-[0.1em] font-bold hover:shadow-[0_0_20px_rgba(172,206,195,0.3)] transition-all active:scale-95 whitespace-nowrap">
+          <button 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-primary text-on-primary px-4 md:px-6 py-2.5 rounded-md font-label text-[10px] md:text-xs uppercase tracking-[0.1em] font-bold hover:shadow-[0_0_20px_rgba(172,206,195,0.3)] transition-all active:scale-95 whitespace-nowrap"
+          >
             Book a Tour
           </button>
         </div>
@@ -85,6 +88,39 @@ const Footer = () => (
       </div>
     </div>
   </footer>
+);
+
+const ContactSection = () => (
+  <section id="contact" className="py-32 px-8 md:px-20 bg-surface border-t border-outline-variant/10">
+    <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
+      <div>
+        <h2 className="font-label text-xs uppercase tracking-[0.2em] text-primary mb-6">Connect</h2>
+        <h3 className="font-headline text-4xl md:text-6xl font-bold text-white tracking-tighter mb-8">Architectural Support.</h3>
+        <p className="font-body text-on-surface-variant text-lg leading-relaxed max-w-md">
+          Our concierge team is available 24/7 to facilitate your transition into the Ambar ecosystem. Reach out for a private consultation.
+        </p>
+      </div>
+      <div className="space-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+          <div>
+            <h4 className="font-label text-[10px] uppercase tracking-widest text-outline mb-4">Direct Line</h4>
+            <p className="font-headline text-2xl text-white">+251 11 667 8900</p>
+            <p className="font-headline text-2xl text-white">+251 91 123 4567</p>
+          </div>
+          <div>
+            <h4 className="font-label text-[10px] uppercase tracking-widest text-outline mb-4">Digital Mail</h4>
+            <p className="font-headline text-2xl text-white">concierge@ambar.work</p>
+            <p className="font-headline text-2xl text-white">tours@ambar.work</p>
+          </div>
+        </div>
+        <div className="pt-12 border-t border-outline-variant/10">
+          <h4 className="font-label text-[10px] uppercase tracking-widest text-outline mb-4">Location</h4>
+          <p className="font-headline text-2xl text-white">Summit 72</p>
+          <p className="font-headline text-2xl text-white">Addis Ababa, Ethiopia</p>
+        </div>
+      </div>
+    </div>
+  </section>
 );
 
 // --- Sections ---
@@ -206,41 +242,12 @@ const HomePage = ({ setPage }: { setPage: (p: Page) => void, key?: string }) => 
         <h2 className="font-headline text-5xl md:text-8xl font-bold text-white tracking-tighter max-w-4xl mx-auto leading-none mb-12">
           Ready to build your masterpiece?
         </h2>
-        <button className="bg-white text-surface px-12 py-5 rounded-md font-label text-sm uppercase tracking-[0.2em] font-extrabold hover:bg-primary transition-colors">
+        <button 
+          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          className="bg-white text-surface px-12 py-5 rounded-md font-label text-sm uppercase tracking-[0.2em] font-extrabold hover:bg-primary transition-colors"
+        >
           Secure Your Suite
         </button>
-      </div>
-    </section>
-
-    {/* Contact Section */}
-    <section id="contact" className="py-32 px-8 md:px-20 bg-surface border-t border-outline-variant/10">
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
-        <div>
-          <h2 className="font-label text-xs uppercase tracking-[0.2em] text-primary mb-6">Connect</h2>
-          <h3 className="font-headline text-4xl md:text-6xl font-bold text-white tracking-tighter mb-8">Architectural Support.</h3>
-          <p className="font-body text-on-surface-variant text-lg leading-relaxed max-w-md">
-            Our concierge team is available 24/7 to facilitate your transition into the Ambar ecosystem. Reach out for a private consultation.
-          </p>
-        </div>
-        <div className="space-y-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
-            <div>
-              <h4 className="font-label text-[10px] uppercase tracking-widest text-outline mb-4">Direct Line</h4>
-              <p className="font-headline text-2xl text-white">+251 11 667 8900</p>
-              <p className="font-headline text-2xl text-white">+251 91 123 4567</p>
-            </div>
-            <div>
-              <h4 className="font-label text-[10px] uppercase tracking-widest text-outline mb-4">Digital Mail</h4>
-              <p className="font-headline text-2xl text-white">concierge@ambar.work</p>
-              <p className="font-headline text-2xl text-white">tours@ambar.work</p>
-            </div>
-          </div>
-          <div className="pt-12 border-t border-outline-variant/10">
-            <h4 className="font-label text-[10px] uppercase tracking-widest text-outline mb-4">Location</h4>
-            <p className="font-headline text-2xl text-white">Summit 72</p>
-            <p className="font-headline text-2xl text-white">Addis Ababa, Ethiopia</p>
-          </div>
-        </div>
       </div>
     </section>
   </motion.div>
@@ -265,7 +272,10 @@ const MeetingRoomsPage = () => (
             High-performance meeting rooms designed for digital architects and visionary teams. Integrated AV, ultimate privacy, and architectural calm.
           </p>
           <div className="flex flex-wrap items-center gap-6">
-            <button className="bg-primary text-on-primary px-8 py-4 rounded font-label text-xs tracking-[0.1em] font-extrabold flex items-center gap-2 group">
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-primary text-on-primary px-8 py-4 rounded font-label text-xs tracking-[0.1em] font-extrabold flex items-center gap-2 group"
+            >
               RESERVE NOW
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -358,7 +368,12 @@ const MeetingRoomsPage = () => (
                   <td className="px-10 py-8 text-white font-headline text-lg">{row.d}</td>
                   <td className="px-10 py-8 text-white font-headline text-lg">{row.w}</td>
                   <td className="px-10 py-8 rounded-r-lg text-right">
-                    <button className="border border-outline/30 hover:border-primary px-6 py-2 rounded font-label text-[10px] tracking-[0.1em] text-white hover:text-primary transition-all uppercase font-bold">Book Room</button>
+                    <button 
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="border border-outline/30 hover:border-primary px-6 py-2 rounded font-label text-[10px] tracking-[0.1em] text-white hover:text-primary transition-all uppercase font-bold"
+                    >
+                      Book Room
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -388,7 +403,10 @@ const CoWorkingPage = () => (
             Designed for the digital architect. A curated ecosystem where monolithic structure meets organic flow. Find your desk in our sanctuary of productivity.
           </p>
           <div className="flex gap-4">
-            <button className="bg-primary text-on-primary px-8 py-4 rounded-md font-label text-xs tracking-[0.1em] hover:shadow-[0_0_20px_rgba(172,206,195,0.3)] transition-all">
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-primary text-on-primary px-8 py-4 rounded-md font-label text-xs tracking-[0.1em] hover:shadow-[0_0_20px_rgba(172,206,195,0.3)] transition-all"
+            >
               RESERVE A DESK
             </button>
           </div>
@@ -566,7 +584,10 @@ const PrivateOfficesPage = () => (
                 <span className="text-on-surface-variant font-label text-xs ml-2 uppercase tracking-widest">ETB / {office.period}</span>
               </div>
               <p className="text-on-surface-variant text-sm mb-12 leading-relaxed">{office.desc}</p>
-              <button className="w-full py-4 bg-primary-container text-white hover:bg-primary hover:text-on-primary transition-all rounded font-label text-[10px] uppercase tracking-widest font-bold">
+              <button 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full py-4 bg-primary-container text-white hover:bg-primary hover:text-on-primary transition-all rounded font-label text-[10px] uppercase tracking-widest font-bold"
+              >
                 Inquire Now
               </button>
             </div>
@@ -599,6 +620,7 @@ export default function App() {
         </AnimatePresence>
       </main>
 
+      <ContactSection />
       <Footer />
     </div>
   );
