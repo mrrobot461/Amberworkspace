@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+
+  --color-background: #031712;
+  --color-primary: #accec3;
+  --color-on-primary: #16362e;
+  --color-primary-container: #23423a;
+  --color-on-primary-container: #8daea3;
+  --color-surface: #031712;
+  --color-surface-container: #0f231e;
+  --color-surface-container-low: #0b1f1a;
+  --color-surface-container-high: #1a2e28;
+  --color-surface-container-highest: #253932;
+  --color-surface-container-lowest: #00110c;
+  --color-on-surface: #d0e8de;
+  --color-on-surface-variant: #c1c8c4;
+  --color-outline: #8b928f;
+  --color-outline-variant: #414846;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary;
+  }
+}
+
+@layer utilities {
+  .topological-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 Q 200 50 400 100 T 800 100 M0 200 Q 200 150 400 200 T 800 200 M0 300 Q 200 250 400 300 T 800 300 M0 400 Q 200 350 400 400 T 800 400 M0 500 Q 200 450 400 500 T 800 500' stroke='%23accec3' stroke-width='0.5' fill='none' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: cover;
+  }
+
+  .topo-lines {
+    background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100C150 150 300 50 450 100C600 150 750 100 800 120M0 250C200 200 400 300 600 250C700 220 800 260 800 260M0 450C100 400 300 500 500 450C650 400 800 450 800 450M0 650C200 700 400 600 600 650C750 680 800 650 800 650' stroke='%23accec3' stroke-width='1' fill='none' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: cover;
+  }
+
+  .glass-morphism {
+    @apply backdrop-blur-xl bg-surface-container-highest/60;
+  }
+
+  .status-beacon {
+    @apply w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#accec3];
+  }
+}
